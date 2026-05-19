@@ -176,7 +176,7 @@ export default function LeadModal({ mode, lead, onSuccess }: Props) {
               <ThemedSelect
                 label="Status"
                 icon={<Activity size={16} className="text-base-content/30 shrink-0" />}
-                value={form.status}
+                value={form.status ?? LeadStatus.NEW}
                 options={Object.values(LeadStatus)}
                 onChange={(val) => set('status', val)}
               />
@@ -189,7 +189,7 @@ export default function LeadModal({ mode, lead, onSuccess }: Props) {
                 <FileText size={16} className="absolute left-3 top-3 text-base-content/30" />
                 <textarea
                   className="textarea textarea-bordered w-full h-24 bg-base-300 border-base-content/10 focus:border-primary focus:outline-none pl-9 resize-none"
-                  value={form.notes}
+                  value={form.notes ?? ''}
                   onChange={(e) => set('notes', e.target.value)}
                   placeholder="Optional notes…"
                 />
